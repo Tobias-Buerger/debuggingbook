@@ -586,6 +586,7 @@ $(DOCS_TARGET)html/00_Table_of_Contents.html: \
 
 $(HTML_TARGET)%.html: $(FULL_NOTEBOOKS)/%.ipynb $(HTML_DEPS)
 	@test -d $(HTML_TARGET) || $(MKDIR) $(HTML_TARGET)
+	@echo "running: $(CONVERT_TO_HTML)"
 	$(CONVERT_TO_HTML) $<
 	@cd $(HTML_TARGET) && $(RM) $*.nbpub.log $*_files/$(BIB)
 	@$(PYTHON) $(POST_HTML) $(POST_HTML_OPTIONS) $@
