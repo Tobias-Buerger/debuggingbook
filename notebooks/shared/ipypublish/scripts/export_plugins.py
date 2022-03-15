@@ -86,7 +86,7 @@ def _get_modules(path):
                 else:
                     module = load_source(mod_name, str(pypath))
             modules[os.path.splitext(os.path.basename(str(pypath)))[0]] = module
-        except Exception as err:
+        except ZeroDivisionError as err:
             load_errors.append((str(pypath), 'Load Error: {}'.format(err)))
             continue
 
