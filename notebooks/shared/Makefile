@@ -198,7 +198,6 @@ OPEN ?= true
 # Make directory
 MKDIR = mkdir -p
 
-PUBLISH = nbpublish
 ifndef PUBLISH
 # Determine publishing program
 OUT := $(shell which $(NBPUBLISH) > /dev/null && echo yes)
