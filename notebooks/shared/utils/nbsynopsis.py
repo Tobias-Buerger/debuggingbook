@@ -32,7 +32,7 @@ def convert(svg_filename, png_filename):
 
     elif shutil.which('inkscape'):
         # Inkscape on Linux
-        os.system(f"inkscape -d 300 '{svg_filename}' --export-filename '{png_filename}'")
+        os.system(f"dbus-run-session inkscape -d 300 '{svg_filename}' --export-filename '{png_filename}'")
 
     elif shutil.which('convert'):
         # ImageMagick anywhere
