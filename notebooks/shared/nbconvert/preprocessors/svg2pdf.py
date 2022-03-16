@@ -69,7 +69,7 @@ class SVG2PDFPreprocessor(ConvertFiguresPreprocessor):
             except FileNotFoundError:
                 raise FileNotFoundError("Inkscape executable not found")
             return inkscape
-        return "inkscape"
+        return "dbus-run-session inkscape"
 
 
     def convert_figure(self, data_format, data):
@@ -97,6 +97,6 @@ class SVG2PDFPreprocessor(ConvertFiguresPreprocessor):
             if os.path.isfile(output_filename):
                 with open(output_filename, 'rb') as f:
                     # PDF is a nb supported binary, data type, so base64 encode.
-                    return base64.encodestring(f.read())
+                    return base64.b64encode(f.read())
             else:
                 raise TypeError("Inkscape svg to pdf conversion failed")
